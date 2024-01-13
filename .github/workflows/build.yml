@@ -37,6 +37,8 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
+      - name: Install Protocol Buffers Compiler
+        run: sudo apt-get install protobuf-compiler
       - name: Check code format
         run: cargo fmt -- --check
       - name: Check the package for errors
