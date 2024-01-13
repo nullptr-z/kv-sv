@@ -1,14 +1,14 @@
 [package]
-name = "kv-sv"
+name = "kv-db"
 version = "0.1.0"
 edition = "2021"
 
 [[bin]]
-name="kv-svs"
+name="kv-dbs"
 path="src/lib_server.rs"
 
 [[bin]]
-name="kv-svc"
+name="kv-dbc"
 path="src/lib_client.rs"
 
 [[bench]]
