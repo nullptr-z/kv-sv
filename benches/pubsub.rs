@@ -11,8 +11,7 @@ use std::time::Duration;
 use tokio::{net::TcpStream, runtime::Builder, time};
 use tokio_rustls::client::TlsStream;
 use tokio_stream::StreamExt;
-use tracing::{info, span};
-use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt, EnvFilter};
+use tracing::info;
 
 /// 启动测试服务器
 async fn start_server() -> Result<()> {
@@ -66,19 +65,19 @@ async fn start_publishers(topic: &'static str, values: &'static [&'static str]) 
 }
 
 fn pubsub(c: &mut Criterion) {
-    let tracer = opentelemetry_jaeger::new_pipeline()
-        .with_service_name("kv-bench")
-        .install_simple()
-        .unwrap();
-    let opentelemeetry = tracing_opentelemetry::layer().with_tracer(tracer);
+    // let tracer = opentelemetry_jaeger::new_pipeline()
+    //     .with_service_name("kv-bench")
+    //     .install_simple()
+    //     .unwrap();
+    // let opentelemeetry = tracing_opentelemetry::layer().with_tracer(tracer);
 
-    tracing_subscriber::registry()
-        .with(EnvFilter::from_default_env())
-        .with(opentelemeetry)
-        .init();
+    // tracing_subscriber::registry()
+    //     .with(EnvFilter::from_default_env())
+    //     .with(opentelemeetry)
+    //     .init();
 
-    let root = span!(tracing::Level::INFO, "app_start", work_units = 2);
-    let _enter = root.enter();
+    // let root = span!(tracing::Level::INFO, "app_start", work_units = 2);
+    // let _enter = root.enter();
 
     // Create tokio runtime
     let runtime = Builder::new_multi_thread()

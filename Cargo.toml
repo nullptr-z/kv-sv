@@ -40,7 +40,7 @@ serde={version="1",features=["derive"]}
 opentelemetry-jaeger = "0.15" # opentelemetry jaeger 支持
 tracing-appender = "0.1" # 文件日志
 tracing-opentelemetry = "0.15" # opentelemetry 支持
-tracing-subscriber = { version = "0.2", features = ["json", "chrono"] } # 日志处理
+tracing-subscriber = { version = "0.3", features = ["json", "chrono"] } # 日志处理
 
 [dev-dependencies]
 async-prost = "0.2.1" # 支持把 protobuf 封装成 TCP frame

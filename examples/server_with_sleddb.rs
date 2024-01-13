@@ -20,7 +20,7 @@ async fn main() -> Result<()> {
     let listner = TcpListener::bind(addr).await?;
     info!("Listener on {}", addr);
 
-    let server: Service<SledDB> = ServiceBuilder::new(SledDB::new("kv-db/db"))
+    let server: Service<SledDB> = ServiceBuilder::new(SledDB::new("kv-sv/db_file"))
         .fn_before_send(|cmd| {
             if cmd.message.is_empty() {
                 cmd.message = "altered. Origin message is empty".into()
